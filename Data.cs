@@ -52,7 +52,7 @@ namespace AR.Speedometer
             //if(a>.0025)
             //locs.Add(coordinate);
 
-            if (GetDistance(locs[locs.Count - 1].Longitude, locs[locs.Count - 1].Latitude, coordinate.Longitude, coordinate.Latitude) > 8)
+            if (locs.Count > 0 && GetDistance(locs[locs.Count - 1].Longitude, locs[locs.Count - 1].Latitude, coordinate.Longitude, coordinate.Latitude) > 8)
             {
                 locs.Add(coordinate);
                 locLongitude.Add(coordinate.Longitude);

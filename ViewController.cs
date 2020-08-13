@@ -120,6 +120,11 @@ namespace AR.Speedometer
         {
             base.ViewDidLoad();
 
+            StartNotifications();
+        }
+
+        private void StartNotifications()
+        {
             //When the user enters the foreground
             UIApplication.Notifications.ObserveDidBecomeActive((sender, args) =>
             {       //THIS WILL HANDLE UPDATES TO THE USER INTERFACE
@@ -148,6 +153,7 @@ namespace AR.Speedometer
             }
             else
             {
+                LocationFinderManager.StartLocationUpdates();
                 LocationFinderManager.StartDataCollection();
             }
 
@@ -330,7 +336,6 @@ namespace AR.Speedometer
             maxSpeed = 0;
             speeds.Enqueue(0);
             StartFunction();
-            //TODO Fix
         }
     }
 
