@@ -330,6 +330,7 @@ namespace AR.Speedometer
             maxSpeed = 0;
             speeds.Enqueue(0);
             StartFunction();
+            //TODO Fix
         }
     }
 
