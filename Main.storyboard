@@ -72,6 +72,28 @@
                                     <action selector="StopButton_TouchUpInside:" destination="BYZ-38-t0r" id="27712" eventType="touchUpInside"/>
                                 </connections>
                             </button>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="27980" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="590" width="374" height="49"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <color key="textColor" systemColor="systemBlueColor" colorSpace="calibratedRGB" red="0" green="0.47843137254902" blue="1" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0" alpha="1"/>
+                                <constraints>
+                                    <constraint id="27984" firstAttribute="height" constant="49"/>
+                                </constraints>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="28257" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="706" width="30" height="30"/>
+                                <state key="normal" image="ARH_Start_Button.png"/>
+                                <constraints>
+                                    <constraint id="28260" firstAttribute="height" constant="30"/>
+                                    <constraint id="28261" firstAttribute="width" constant="30"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="StopButton_TouchUpInside:" destination="28259" id="28258" eventType="touchUpInside"/>
+                                    <action selector="Start_Clicked:" destination="BYZ-38-t0r" id="28266" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="1217" firstItem="299" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="264"/>
@@ -93,6 +115,11 @@
                             <constraint id="21724" firstItem="21699" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
                             <constraint id="27707" firstItem="27702" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
                             <constraint id="27708" firstItem="27702" firstAttribute="bottom" secondItem="21637" secondAttribute="bottom"/>
+                            <constraint id="27981" firstItem="27980" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="27982" firstItem="27980" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="27983" firstItem="21637" firstAttribute="bottom" secondItem="27980" secondAttribute="bottom" constant="97"/>
+                            <constraint id="28264" firstItem="28257" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="28265" firstItem="28257" firstAttribute="bottom" secondItem="21637" secondAttribute="bottom"/>
                         </constraints>
                     </view>
                     <connections>
@@ -102,6 +129,8 @@
                         <outlet property="ConstMaxSpeed" destination="20736" id="name-outlet-20736"/>
                         <outlet property="TopSpeedLabel" destination="21637" id="name-outlet-21637"/>
                         <outlet property="StopButton" destination="27702" id="name-outlet-27702"/>
+                        <outlet property="TopSpeedDigitalLabel" destination="27980" id="name-outlet-27980"/>
+                        <outlet property="PlayButton" destination="28257" id="name-outlet-28257"/>
                     </connections>
                     <navigationItem title="Title" id="22738" key="navigationItem"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -131,5 +160,6 @@
     </scenes>
     <resources>
         <image name="ARH_Stop_Button.png" width="70" height="70"/>
+        <image name="ARH_Start_Button.png" width="70" height="70"/>
     </resources>
 </document>

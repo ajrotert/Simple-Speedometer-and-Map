@@ -32,11 +32,23 @@ namespace AR.Speedometer
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton PlayButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton StopButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel TopSpeedDigitalLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel TopSpeedLabel { get; set; }
+
+        [Action ("Start_Clicked:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Start_Clicked (UIKit.UIButton sender);
 
         [Action ("StopButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -64,9 +76,19 @@ namespace AR.Speedometer
                 MainView = null;
             }
 
+            if (PlayButton != null) {
+                PlayButton.Dispose ();
+                PlayButton = null;
+            }
+
             if (StopButton != null) {
                 StopButton.Dispose ();
                 StopButton = null;
+            }
+
+            if (TopSpeedDigitalLabel != null) {
+                TopSpeedDigitalLabel.Dispose ();
+                TopSpeedDigitalLabel = null;
             }
 
             if (TopSpeedLabel != null) {

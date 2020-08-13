@@ -105,6 +105,7 @@ namespace AR.Speedometer
                             float speed = speeds.Dequeue();
                             Console.WriteLine("Speed Removed From queue");
                             DigitalSpeed.Text = speed.ToString();
+                            TopSpeedDigitalLabel.Text = maxSpeed.ToString();
                             if(showSpeed && speed<=100)
                                 CreateSpeedometerRound(speed, maxSpeed);
                         }
@@ -138,6 +139,7 @@ namespace AR.Speedometer
         private void StartFunction()
         {
             StopButton.Enabled = true;
+            PlayButton.Enabled = false;
 
             if (!LocationAllowed)
             {
@@ -161,8 +163,9 @@ namespace AR.Speedometer
         private void StopFunction()
         {
             StopButton.Enabled = false;
+            PlayButton.Enabled = true;
 
-            if(TraceThread!=null)
+            if (TraceThread!=null)
                 TraceThread.Abort();
             if(SpeedThread != null)
                 SpeedThread.Abort();
@@ -320,6 +323,13 @@ namespace AR.Speedometer
         partial void StopButton_TouchUpInside(UIButton sender)
         {
             StopFunction();
+        }
+
+        partial void Start_Clicked(UIButton sender)
+        {
+            maxSpeed = 0;
+            speeds.Enqueue(0);
+            StartFunction();
         }
     }
 
