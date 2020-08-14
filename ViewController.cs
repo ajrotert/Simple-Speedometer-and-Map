@@ -4,7 +4,6 @@ using UIKit;
 using MapKit;
 using Foundation;
 using CoreGraphics;
-using AVFoundation;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -201,17 +200,14 @@ namespace AR.Speedometer
 
         private void DeviceRotated(NSNotification notification=null)
         {
-            //if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone)
-            //{
-                if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft || UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
-                {
-                    LoadMap();
-                }
-                else if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.PortraitUpsideDown || UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.Portrait)
-                {
-                    LoadSpeed();
-                }
-            //}
+            if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft || UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
+            {
+                LoadMap();
+            }
+            else if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.PortraitUpsideDown || UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.Portrait)
+            {
+                LoadSpeed();
+            }
 
         }
 
@@ -343,15 +339,12 @@ namespace AR.Speedometer
 
     public class CircleGraph : UIView
     {
-        //        const float FULL_CIRCLE = 2*(float)Math.PI;
-
-        const float FULL_CIRCLE = -(float)Math.PI; //
+        const float FULL_CIRCLE = -(float)Math.PI; 
         int _radius = 20;
-        //int _radius = 10;
         int _lineWidth = 10;
         nfloat _percentComplete = 0.0f;
-        UIColor _frontColor = UIColor.LightGray; //UIColor.FromRGB(46, 60, 76);
-        UIColor _backColor = UIColor.SystemBlueColor; //UIColor.FromRGB(234, 105, 92);
+        UIColor _frontColor = UIColor.LightGray;
+        UIColor _backColor = UIColor.SystemBlueColor; 
         bool _direction = true;
 
         public CircleGraph(CGRect frame, int lineWidth, nfloat percentComplete, bool direction)
@@ -361,7 +354,6 @@ namespace AR.Speedometer
             this.Frame = new CGRect(frame.X, frame.Y, frame.Width, frame.Height);
             this.BackgroundColor = UIColor.Clear;
             _direction = direction;
-            //this.BackgroundColor = UIColor.White;
 
         }
 
@@ -371,7 +363,6 @@ namespace AR.Speedometer
             _percentComplete = percentComplete;
             this.Frame = new CGRect(frame.X, frame.Y, frame.Width, frame.Height);
             this.BackgroundColor = UIColor.Clear;
-            //this.BackgroundColor = UIColor.White;
             _backColor = backColor;
             _frontColor = frontColor;
         }
@@ -384,7 +375,6 @@ namespace AR.Speedometer
             {
                 var diameter = Math.Min(this.Bounds.Width, this.Bounds.Height);
                 _radius = (int)(diameter / 2) - _lineWidth;
-                //_radius = (int)(diameter / 2);
                 DrawGraph(g, this.Bounds.GetMidX(), this.Bounds.GetMidY());
             }
         }
